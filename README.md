@@ -15,12 +15,6 @@ $ mkdir ~/.dotfiles/
 $ cd ~/.dotfiles/
 ~/.dotfiles$ git init
 ``` 
-Create a .gitifnore file that will ignore everything. You can be more conservative here and only ignore things you don't want in git. I like to pick and choose exactly which things I'll add, so I ignore everything by default and then add it later.
-```shell
-~/.dotfiles$ echo "*" > .gitignore
-~/.dotfiles$ git add -f .gitignore 
-~/.dotfiles$ git commit -m "gitignore"
-``` 
 
 Now we've got a repository set up for our files. It's out of the way of our home directory, so the .git directory won't cause any conflicts with other repositories in your home directory. Here comes the magic part that lets us use this repository to keep our home directory in. Add the dgit alias to your .bashrc or .profile, whichever you prefer:
 
