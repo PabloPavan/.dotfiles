@@ -31,11 +31,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [
         ((modm, xK_Left), prevWS)
         , ((modm, xK_Right), nextWS)
-        , ((modm .|. shiftMask, xK_t), setLayout $ XMonad.layoutHook conf)
-        , ((modm, xK_k, sendMessage) $ MirrorExpand)
-        , ((modm, xK_j, sendMessage) $ MirrorShrink)
-        , ((modm, xK_h, sendMessage) $ Shrink)
-        , ((modm, xK_l, sendMessage) $ Expand)
+        --, ((modm .|. shiftMask, xK_t), setLayout $ XMonad.layoutHook conf)
     ]
 
 newKeys x = myKeys x `M.union` keys defaultConfig x
@@ -93,7 +89,8 @@ defaultLayouts = smartBorders(avoidStruts(
     ))
 
 -- Define layout for specific workspaces
-webLayout = noBorders $ Full
+-- webLayout = noBorders $ Full
+
 
 myConfig = defaultConfig {
     modMask = mod4Mask,
@@ -102,6 +99,7 @@ myConfig = defaultConfig {
     workspaces = myWorkspaces,
     keys = newKeys,
     manageHook = myManageHook,
+    layoutHook = defaultLayouts, 
     handleEventHook = fullscreenEventHook
     }
     `additionalKeys`
@@ -113,5 +111,10 @@ myConfig = defaultConfig {
         , ((mod4Mask, xK_g), spawn "google-chrome &")
         , ((mod4Mask, xK_s), spawn "subl &")
         , ((mod4Mask, xK_f), spawn "nautilus &")
+        --
+        , ((mod4Mask, xK_k), sendMessage $ MirrorExpand)
+        , ((mod4Mask, xK_j), sendMessage $ MirrorShrink)
+        , ((mod4Mask, xK_h), sendMessage $ Shrink)
+        , ((mod4Mask, xK_x), sendMessage $ Expand)
         
     ]
