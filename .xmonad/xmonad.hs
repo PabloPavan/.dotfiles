@@ -22,7 +22,7 @@ import XMonad.Actions.CycleWS
 
 myBorderWidth   = 1
 
-myWorkspaces = ["[1] web", "[2] code", "[3] files"] ++ map show [4..9]
+myWorkspaces = ["1:web", "2:code", "3:files"] ++ map show [4..9]
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
@@ -31,6 +31,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [
         ((modm, xK_Left), prevWS)
         , ((modm, xK_Right), nextWS)
+
     ]
 
 newKeys x = myKeys x `M.union` keys defaultConfig x
@@ -71,9 +72,9 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 myManageHook = composeAll . concat $
     [
         -- Applications config
-        [ className =? "Google-chrome" --> viewShift "[1] web"]
-        , [ className =? "Sublime_text" --> viewShift "[2] code"]
-        , [className =? "Nautilus" --> viewShift "[3] files"]
+        [ className =? "Google-chrome" --> viewShift "1:web"]
+        , [ className =? "Sublime_text" --> viewShift "2:code"]
+        , [className =? "Nautilus" --> viewShift "3:files"]
         --
         , [className =? "Gnome-calculator" --> doFloat]
     ]
@@ -104,8 +105,8 @@ myConfig = defaultConfig {
         ((shiftMask, xK_F2), spawn "amixer set Master 2- unmute")
         , ((shiftMask, xK_F3), spawn "amixer set Master 2+ unmute")
         --
-        , ((mod4Mask, xK_l), spawn "xscreensaver-command --lock")
+        , ((mod4Mask, xK_z), spawn "xscreensaver-command --lock")
         , ((mod4Mask, xK_g), spawn "google-chrome &")
         , ((mod4Mask, xK_s), spawn "subl &")
-        , ((mod4Mask, xK_n), spawn "nautilus &")
+        , ((mod4Mask, xK_f), spawn "nautilus &")
     ]
