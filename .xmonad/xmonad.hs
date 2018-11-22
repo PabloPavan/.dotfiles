@@ -32,6 +32,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         ((modm, xK_Left), prevWS)
         , ((modm, xK_Right), nextWS)
         , ((modm .|. shiftMask, xK_t), setLayout $ XMonad.layoutHook conf)
+        , ((modm, xK_k, sendMessage) $ MirrorExpand)
+        , ((modm, xK_j, sendMessage) $ MirrorShrink)
+        , ((modm, xK_h, sendMessage) $ Shrink)
+        , ((modm, xK_l, sendMessage) $ Expand)
     ]
 
 newKeys x = myKeys x `M.union` keys defaultConfig x
