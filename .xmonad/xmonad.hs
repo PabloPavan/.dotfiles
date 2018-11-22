@@ -171,7 +171,7 @@ myConfig = defaultConfig {
        -- , ((mod1Mask .|. shiftMask, xK_Down), spawn "xbacklight -dec 5")
 
         --, ((mod4Mask, xK_l), spawn "systemctl suspend")
-        --, ((mod4Mask, xK_l), spawn "xscreensaver-command --lock")
+        , ((mod4Mask, xK_l), spawn "xscreensaver-command --lock")
         --, ((mod4Mask, xK_t), spawn "./.xmonad/touchpadHandler.sh")
         , ((mod4Mask, xK_g), spawn "google-chrome &")
         , ((mod4Mask, xK_s), spawn "subl &")
