@@ -55,14 +55,14 @@ $ dgit commit -m "Added .profile"
  ```
 We can push our configuration files to a remote repository:
 ```shell
-$ dgit remote add origin ssh://git@github.com:PabloPavan/xmonad_dotfiles.git
+$ dgit remote add origin git@github.com:PabloPavan/xmonad_dotfiles.git
 $ dgit push origin master
  * [new branch]      master -> master
  ```
 ## And easily deploy them to a new machine:
 ```shell
 $ ssh someothermachine
-$ git clone ssh://git@github.com:PabloPavan/xmonad_dotfiles.git
+$ git clone git@github.com:PabloPavan/xmonad_dotfiles.git
 $ alias dgit='git --git-dir ~/.dotfiles/.git --work-tree=$HOME'
 $ dgit reset --hard
 HEAD is now at f437f9f Added .profile
