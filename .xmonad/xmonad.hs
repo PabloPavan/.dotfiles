@@ -112,6 +112,7 @@ myManageHook = composeAll . concat $
           -- Applications that go to web
         [ className =? "Google-chrome" --> viewShift "web"]
         , [ className =? "Sublime_text" --> viewShift "code"]
+        , [className =? "Gnome-calculator" --> doFloat]
     ]
     where
         viewShift = doF . liftM2 (.) W.greedyView W.shift
