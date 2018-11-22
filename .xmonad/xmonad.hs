@@ -108,6 +108,6 @@ myConfig = defaultConfig {
         , ((mod4Mask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock; xset dpms force off")
         , ((mod4Mask, xK_g), spawn "google-chrome &")
         , ((mod4Mask, xK_s), spawn "subl &")
-        , ((mod4Mask, xK_e), spawn "nautilus &")
+        , ((mod4Mask, xK_f), spawn "nautilus &")
         
     ]
