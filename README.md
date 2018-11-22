@@ -54,7 +54,7 @@ $ dgit push origin master
 ## And easily deploy them to a new machine:
 ```shell
 $ ssh someothermachine
-$ git clone ssh://fboender@git.electricmonk.nl:dotfiles ./.dotfiles
+$ git clone ssh://git@github.com:PabloPavan/dotfiles.git
 $ alias dgit='git --git-dir ~/.dotfiles/.git --work-tree=$HOME'
 $ dgit reset --hard
 HEAD is now at f437f9f Added .profile
