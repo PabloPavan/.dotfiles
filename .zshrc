@@ -1,14 +1,5 @@
-# Created by newuser for 5.4.2
-
-
 #/bin/shell
-# Created by newuser for 5.0.7
-# function untargz {
-#     tar xzvf "$@"
-# }
 
-# https://github.com/rpellerin/dotfiles/blob/master/.aliases
-# Extract any archive
 function extract() {
     if [ -f $1 ] ; then
         case $1 in
@@ -34,12 +25,10 @@ function extract() {
 function open {
     while [ "$1" ] ; do
         xdg-open $1 &> /dev/null
-        shift # shift décale les param
+        shift
     done
 }
 
-
-# A reminder
 function githelp {
     echo "-------------------------------------------------------------------------------"
     echo "git clone http://... [repo-name]"
@@ -95,7 +84,6 @@ function githelp {
 }
 
 
-# Alias
 alias ls='ls --color=auto'
 alias l="ls  --color=auto -la"
 alias ll="ls --color=auto -la"
@@ -104,25 +92,5 @@ alias rm='rm --interactive --verbose'
 alias mv='mv --interactive --verbose'
 alias cp='cp --verbose'
 
-# bindkey '~' beginning-of-line # Home (console)
-# bindkey '9~' '~' # Home (console)
-
-domain=$(cat /etc/resolv.conf | grep domain)
-if [[ "$domain" = "domain ca.cite-u.univ-nantes.prive" ]]; then
-    source ~/proxy/citeu.sh
-    echo ">>> Cité U proxy environment"
-fi
-search=$(cat /etc/resolv.conf | grep search)
-if [[ "$search" = "search jof.wifi.univ-nantes.prive" ]]; then
-    source ~/proxy/iut-wifi.sh
-    echo ">>> IUT wifi proxy environment"
-fi
-
-
-UTILISATEUR=%n
-# THIS_DIRECTORY=%~
-THIS_DIRECTORY=%c
-
-PROMPT="${UTILISATEUR} | ${THIS_DIRECTORY} $ "
 #dgit 
 alias dgit='git --git-dir ~/.dotfiles/.git --work-tree=$HOME'
