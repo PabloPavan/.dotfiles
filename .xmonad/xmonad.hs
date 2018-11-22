@@ -26,7 +26,7 @@ import XMonad.Actions.CycleWS
 
 myBorderWidth   = 1
 
-myWorkspaces = ["[1] web", "[2] code", "[3] files" ++ map show [4..9]
+myWorkspaces = ["[1] web", "[2] code", "[3] files"] ++ map show [4..9]
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
