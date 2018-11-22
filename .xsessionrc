@@ -4,12 +4,8 @@
 
 xrdb -merge .Xresources
 
-# Set up an icon tray
-#stalonetray &
-
 # Fire up apps
-
-#xscreensaver -no-splash &
+xscreensaver -no-splash &
 
 # Set background image with feh
 feh --bg-scale /usr/share/backgrounds/warty-final-ubuntu.png &
