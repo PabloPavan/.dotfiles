@@ -105,7 +105,7 @@ myConfig = defaultConfig {
         ((mod4Mask, xK_F2), spawn "amixer set Master 2- unmute")
         , ((mod4Mask, xK_F3), spawn "amixer set Master 2+ unmute")
         --
-        , ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock; xset dpms force off")
+        , ((mod4Mask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock; xset dpms force off")
         , ((mod4Mask, xK_g), spawn "google-chrome &")
         , ((mod4Mask, xK_s), spawn "subl &")
         , ((mod4Mask, xK_f), spawn "nautilus &")
