@@ -1,5 +1,3 @@
---https://gist.github.com/maxbane/9521612#file-xmonad-hs-L43
-
 import XMonad
 import Graphics.X11.ExtraTypes.XF86
 import XMonad.Util.EZConfig
