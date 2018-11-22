@@ -31,7 +31,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [
         ((modm, xK_Left), prevWS)
         , ((modm, xK_Right), nextWS)
-
+        , ((modm .|. shiftMask, xK_t), setLayout $ XMonad.layoutHook conf)
     ]
 
 newKeys x = myKeys x `M.union` keys defaultConfig x
@@ -109,4 +109,5 @@ myConfig = defaultConfig {
         , ((mod4Mask, xK_g), spawn "google-chrome &")
         , ((mod4Mask, xK_s), spawn "subl &")
         , ((mod4Mask, xK_e), spawn "nautilus &")
+        
     ]
