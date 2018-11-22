@@ -5,7 +5,7 @@ sudo apt-get install xmonad suckless-tools xscreensaver xmobar feh
 ```
 cloning the repo to deploy in your machine:
 ```shell
-$ git clone git@github.com:PabloPavan/xmonad_dotfiles.git
+$ git clone git@github.com:PabloPavan/.dotfiles.git
 $ alias dgit='git --git-dir ~/.dotfiles/.git --work-tree=$HOME'
 $ dgit reset --hard
 ``` 
