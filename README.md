@@ -11,6 +11,52 @@ $ dgit reset --hard
 ``` 
 Please note that any files that exist in your home directory will be overwritten by the files from your repository if they're present.
 
+## How to configure xscreensaver 
+
+```shell
+$ xscreensaver-demo 
+``` 
+## How to use multiple screens
+
+Use the xrandr command, following the example:
+
+```shell
+$ xrandr
+
+Screen 0: minimum 320 x 200, current 3840 x 1080, maximum 8192 x 8192
+HDMI-1 connected primary 1920x1080+0+0 (normal left inverted right x axis y axis) 477mm x 268mm
+   1920x1080     60.00*+  50.00    59.94  
+   1920x1080i    60.00    50.00    59.94  
+   1680x1050     59.88  
+   1280x1024     75.02    60.02  
+   1152x864      75.00  
+   1280x720      60.00    50.00    59.94  
+   1024x768      75.03    60.00  
+   800x600       75.00    60.32  
+   720x576       50.00  
+   720x480       60.00    59.94  
+   640x480       75.00    60.00    59.94  
+   720x400       70.08  
+DP-1 disconnected (normal left inverted right x axis y axis)
+HDMI-2 disconnected (normal left inverted right x axis y axis)
+DP-2 connected 1920x1080+1920+0 (normal left inverted right x axis y axis) 477mm x 268mm
+   1920x1080     60.00*+
+   1680x1050     59.95  
+   1280x1024     75.02    60.02  
+   1152x864      75.00  
+   1024x768      75.03    60.00  
+   800x600       75.00    60.32  
+   640x480       75.00    59.94  
+   720x400       70.08 
+
+```
+
+Select the connected screens and use the command: Obs. Select **--right-of** to be the main screen.
+
+```shell
+$ xrandr --output HDMI-1 --auto --output DP-2 --auto --right-of HDMI-1 
+``` 
+
 # EXTRA
 ## How to config your dotfiles git
 
