@@ -1,14 +1,3 @@
--- xmobar configuration file
---
--- Mess with this file to change the appearance of the contents of the
--- status bar which are not directly controlled by xmonad. You can see your
--- changes immediately by recompiling xmonad using "super-q".
---
--- There's a lot you can do here. Refer to "man xmobar".
---
--- Author: David Brewer
--- Repository: https://github.com/davidbrewer/xmonad-ubuntu-conf
-
 
 Config {
 -- Set font and default foreground/background colors. Note that
@@ -39,6 +28,7 @@ commands = [
 
 	--Run Network "enp2s0" ["-L","0","-H","32","--normal","green","--high","red"] 10,
 	--Run Network "wlp3s0" ["-L","0","-H","32","--normal","green","--high","red"] 10,
+	--Run Network "enp0s3" ["-L","0","-H","32","--normal","green","--high","red"] 10,
 
 	--Run Brightness ["-t", ""] 60,
 
@@ -49,7 +39,7 @@ commands = [
 
 	-- Date formatting
 	--Run Date "%k:%M:%S" "date" 10,
-	Run DateZone "%a %d %b %Y - %H:%M:%S" "fr_FR.UTF-8" "UTC" "date" 10,
+	Run DateZone "%a %d %b %Y - %H:%M:%S" "pt_BR.UTF-8" "UTC" "date" 10,
 
 	-- Battery information. This is likely to require some customization
 	-- based upon your specific hardware. Or, for a desktop you may want
@@ -98,30 +88,6 @@ alignSep = "}{",
 -- template = "%StdinReader% }{  %cpu% | %memory% | Vol: %myvolume% <fc=#e6744c>%date%</fc> "
 -- template = "%StdinReader% }{ %enp2s0%%wlp3s0% | %battery% | %cpu% | %memory% | %myvolume% | Lum: %mybright% | <fc=#e6744c>%date%</fc>"
    template = "%StdinReader% }{%cpu% | %memory% | %myvolume%  <fc=#e6744c>%date%</fc>"
+   --template = "%StdinReader% }{%cpu% | %memory% | %wlp3s0% | %myvolume%  <fc=#e6744c>%date%</fc>"
 }
 
---Config { font = "-xos4-terminus-bold-r-normal--20-*-*-*-*-*-iso10646-1"
---       , bgColor = "black"
---       , fgColor = "grey"
---       , position = TopW L 100
---       , lowerOnStart = True
---       , commands = [ Run Weather "LFRS" ["-t","<station>: <tempC>C / <rh>%","-L","18","-H","25","--normal","#00CC00","--high","#CC0000","--low","lightblue"] 36000
---                    , Run Network "eth0" ["-L","0","-H","32","--normal","#00CC00","--high","#CC0000"] 10
---                    , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
---                    , Run Memory ["-t","Mem: <usedratio>%"] 10
---                    , Run Battery ["-t","<timeleft>","-L","50","-H","75","-h","green","-n","yell","-l","red"] 10
---                    --, Run Battery ["--", "-c", "energy_full"] 30
---        , Run Date "%k:%M:%S" "date" 10
---        , Run Com "date" ["+'%a %d %b'"] "mydate" 600
---                    --, Run StdinReader
---                    ]
---       , sepChar = "%"
---       , alignSep = "}{"
---       , template = " Hi Damien ! How are you today ?}{ | %cpu% | %memory% | <fc=#ee9a00>%date% %mydate%</fc>"
---       }
-
-
-
-
----- , Run Date "%a %d %b %Y %H:%M:%S" "date" 10
----- <fc=#00cc00>%date%</fc>
