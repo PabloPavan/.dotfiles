@@ -1,12 +1,18 @@
 # How to install xmonad
 
-Install xmonad and some handy tools
-Install xmonad and dmenu:
 ```shell
 sudo apt-get install xmonad suckless-tools xscreensaver xmobar feh
 ```
+cloning the repo to deploy in your machine:
+```shell
+$ git clone git@github.com:PabloPavan/xmonad_dotfiles.git
+$ alias dgit='git --git-dir ~/.dotfiles/.git --work-tree=$HOME'
+$ dgit reset --hard
+``` 
+Please note that any files that exist in your home directory will be overwritten by the files from your repository if they're present.
 
-# How to use this repo
+# EXTRA
+## How to config your dotfiles git
 
 Create a directory to hold your git database (the .git dir):
 
@@ -30,7 +36,7 @@ HEAD is now at 642d86f gitignore
 ``` 
 Now the repository is checked out in our home directory, and it's ready to have stuff added to it. The dgit reset --hard command might seem spooky (and I do suggest you make a backup before running it), but since we're ignoring everything, it'll work just fine.
 
-## Using it
+### Add files
 Everything we do now, we do with the dgit command instead of normal git. In case you forget to use dgit, it simply won't work, so don't worry about that.
 
 A dgit status shows nothing, since we've gitignored everything:
@@ -49,16 +55,16 @@ $ dgit commit -m "Added .profile"
  ```
 We can push our configuration files to a remote repository:
 ```shell
-$ dgit remote add origin git@github.com:PabloPavan/xmonad_dotfiles.git
+$ dgit remote add origin your@githublink
 $ dgit push origin master
  * [new branch]      master -> master
  ```
-## And easily deploy them to a new machine:
+ ### And easily deploy them to a new machine:
+ 
 ```shell
-$ ssh someothermachine
-$ git clone git@github.com:PabloPavan/xmonad_dotfiles.git
+$ git clone your@githublink
 $ alias dgit='git --git-dir ~/.dotfiles/.git --work-tree=$HOME'
 $ dgit reset --hard
 HEAD is now at f437f9f Added .profile
 ``` 
-Please note that any files that exist in your home directory will be overwritten by the files from your repository if they're present.
+ 
