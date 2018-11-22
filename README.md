@@ -1,3 +1,11 @@
+# How to install xmonad
+
+Install xmonad and some handy tools
+Install xmonad and dmenu:
+```shell
+sudo apt-get install xmonad suckless-tools xscreensaver xmobar feh zsh
+```
+
 # How to use this repo
 
 Create a directory to hold your git database (the .git dir):
