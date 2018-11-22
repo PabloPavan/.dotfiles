@@ -78,8 +78,10 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 myManageHook = composeAll . concat $
     [
           -- Applications config
-        [ className =? "Google-chrome" --> viewShift "web"]
-        , [ className =? "Sublime_text" --> viewShift "code"]
+        [ className =? "Google-chrome" --> viewShift "[1] web"]
+        , [ className =? "Sublime_text" --> viewShift "[2] code"]
+        , [className =? "Nautilus" --> viewShift "[3] files"]
+        --
         , [className =? "Gnome-calculator" --> doFloat]
     ]
     where
