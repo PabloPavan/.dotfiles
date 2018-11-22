@@ -124,4 +124,5 @@ UTILISATEUR=%n
 THIS_DIRECTORY=%c
 
 PROMPT="${UTILISATEUR} | ${THIS_DIRECTORY} $ "
+#dgit 
 alias dgit='git --git-dir ~/.dotfiles/.git --work-tree=$HOME'
