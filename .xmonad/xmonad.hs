@@ -15,14 +15,10 @@ import Data.Monoid
 import System.Exit
 import XMonad.Util.Run
 import System.IO
-
 import Control.Monad
-
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
-
 import XMonad.Actions.CycleWS
-
 
 myBorderWidth   = 1
 
@@ -37,7 +33,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         , ((modm, xK_Right), nextWS)
     ]
 
-
 newKeys x = myKeys x `M.union` keys defaultConfig x
 
 -- The main function.
@@ -45,7 +40,6 @@ main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
 
 -- Command to launch the bar.
 myBar = "xmobar"
-
 
 myTitleColor = "#eeeeee" -- color of window title
 myTitleLength = 80 -- truncate window title to this length
@@ -58,7 +52,6 @@ myVisibleWSLeft = "(" -- wrap inactive workspace with these
 myVisibleWSRight = ")"
 myUrgentWSLeft = "{" -- wrap urgent workspace with these
 myUrgentWSRight = "}"
-
 
 -- Custom PP, configure it as you like. It determines what is being written to the bar.
 myPP = xmobarPP {
@@ -77,7 +70,7 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 myManageHook = composeAll . concat $
     [
-          -- Applications config
+        -- Applications config
         [ className =? "Google-chrome" --> viewShift "[1] web"]
         , [ className =? "Sublime_text" --> viewShift "[2] code"]
         , [className =? "Nautilus" --> viewShift "[3] files"]
@@ -86,16 +79,12 @@ myManageHook = composeAll . concat $
     ]
     where
         viewShift = doF . liftM2 (.) W.greedyView W.shift
-
-
+        
 -- Define default layouts used on most workspaces
 defaultLayouts = smartBorders(avoidStruts(
     ResizableTall 1 (3/100) (1/2) []
-    -- ||| Mirror (ResizableTall 1 (3/100) (1/2) [])
     ||| noBorders Full
-    -- ||| Grid
     ||| ThreeColMid 1 (3/100) (3/4)
-    -- ||| Circle
     ))
 
 -- Define layout for specific workspaces
@@ -103,26 +92,18 @@ webLayout = noBorders $ Full
 
 myConfig = defaultConfig {
     modMask = mod4Mask,
-   
     terminal = "gnome-terminal",
     borderWidth = myBorderWidth,
     workspaces = myWorkspaces,
     keys = newKeys,
     manageHook = myManageHook,
     handleEventHook = fullscreenEventHook
-
     }
     `additionalKeys`
     [
-
-        ---- XF86XK_AudioLowerVolume
         ((shiftMask, xK_F2), spawn "amixer set Master 2- unmute")
-
-        ---- XF86XK_AudioRaiseVolume
         , ((shiftMask, xK_F3), spawn "amixer set Master 2+ unmute")
-
-
-        --, ((mod4Mask, xK_l), spawn "systemctl suspend")
+        --
         , ((mod4Mask, xK_l), spawn "xscreensaver-command --lock")
         , ((mod4Mask, xK_g), spawn "google-chrome &")
         , ((mod4Mask, xK_s), spawn "subl &")
