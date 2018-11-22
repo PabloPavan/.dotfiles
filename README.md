@@ -19,7 +19,7 @@ $ cd ~/.dotfiles/
 Now we've got a repository set up for our files. It's out of the way of our home directory, so the .git directory won't cause any conflicts with other repositories in your home directory. Here comes the magic part that lets us use this repository to keep our home directory in. Add the dgit alias to your .bashrc or .profile, whichever you prefer:
 
 ```shell
-~/.dotfiles$ echo "alias dgit='git --git-dir ~/.dotfiles/.git --work-tree=\$HOME'" >> ~/.bashrc
+~/.dotfiles$ echo "alias dgit='git --git-dir ~/.dotfiles/.git --work-tree=\$HOME'" >> ~/.zshrc
 ``` 
 ​You'll have to log out and in again, or just copy-paste the alias defnition in your current shell. We can now the repository out in our home directory with the dgit command:
 
