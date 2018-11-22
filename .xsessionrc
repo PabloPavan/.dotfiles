@@ -9,7 +9,10 @@ xrdb -merge .Xresources
 
 # Fire up apps
 
-#xscreensaver -no-splash &
+xscreensaver -no-splash &
+
+# Set background image with feh
+feh --bg-scale /usr/share/backgrounds/warty-final-ubuntu.png &
 
 if [ -x /usr/bin/nm-applet ] ; then
    nm-applet --sm-disable &
