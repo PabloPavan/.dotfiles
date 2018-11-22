@@ -1,1 +1,7 @@
 *
+*.o
+xmonad.hi
+xmonad.errors
+xmonad-x86_64-linux
+xmonad.o
+xmonad.state
