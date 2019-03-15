@@ -115,6 +115,6 @@ myConfig = defaultConfig {
         , ((mod4Mask, xK_k), sendMessage $ MirrorExpand)
         , ((mod4Mask, xK_j), sendMessage $ MirrorShrink)
         , ((mod4Mask, xK_h), sendMessage $ Shrink)
-        , ((mod4Mask, xK_x), sendMessage $ Expand)
+        , ((mod4Mask, xK_l), sendMessage $ Expand)
         
     ]
