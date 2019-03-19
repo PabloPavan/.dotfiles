@@ -352,6 +352,9 @@ Entered on %U
         '("r" "#+begin_src R :results output :session *R* :exports both\n\n#+end_src" "<src lang=\"R\">\n\n</src>"))
 
 (add-to-list 'org-structure-template-alist
+        '("rt" "#+begin_src R :colnames yes :results table :session *R* :exports both\n\n#+end_src" "<src lang=\"R\">\n\n</src>"))
+
+(add-to-list 'org-structure-template-alist
         '("R" "#+begin_src R :results output graphics :file (org-babel-temp-file \"figure\" \".png\") :exports both :width 600 :height 400 :session *R* \n\n#+end_src" "<src lang=\"R\">\n\n</src>"))
 
 (add-to-list 'org-structure-template-alist
@@ -418,10 +421,6 @@ Entered on %U
 (global-set-key (kbd "TAB") 'company-complete-common)
 (add-hook 'after-init-hook 'global-company-mode)
 
-
-(defun preloadimage ()
-  (org-babel-goto-named-src-block "loadimage") (org-babel-execute-src-block)
-)
 
 (defun presaveimage ()
   (org-babel-goto-named-src-block "saveimage") (org-babel-execute-src-block)

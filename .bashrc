@@ -185,3 +185,7 @@ function githelp {
 
 #dgit alias 
 alias dgit='git --git-dir ~/.dotfiles/.git --work-tree=$HOME'
+
+SPARK_HOME=/usr/local/spark
+
+export PATH=$SPARK_HOME/bin:$PATH
