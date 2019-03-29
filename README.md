@@ -7,7 +7,7 @@ sudo apt-get install emacs25 emacs-goodies-el org-mode org-mode-doc ess r-base t
 # How to install xmonad
 
 ```shell
-sudo apt-get install xmonad suckless-tools xscreensaver xmobar feh
+sudo apt-get install xmonad suckless-tools xscreensaver xmobar feh kde-spectacle
 ```
 cloning the repo to deploy in your machine:
 ```shell
