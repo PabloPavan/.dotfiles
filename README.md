@@ -1,3 +1,9 @@
+# How to install emacs 
+
+```shell
+sudo apt-get install emacs25 emacs-goodies-el org-mode org-mode-doc ess r-base texlive auctex xclip gfortran libc6-dev g++ libssl-dev libcurl4-openssl-dev libxml2-dev -y
+```
+
 # How to install xmonad
 
 ```shell
