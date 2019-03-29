@@ -20,6 +20,7 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 import XMonad.Actions.CycleWS
 
+
 myBorderWidth   = 1
 
 myWorkspaces = ["1:web", "2:code", "3:files"] ++ map show [4..9]
@@ -31,7 +32,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [
         ((modm, xK_Left), prevWS)
         , ((modm, xK_Right), nextWS)
-        --, ((modm .|. shiftMask, xK_t), setLayout $ XMonad.layoutHook conf)
+        , ((modm .|. shiftMask, xK_t), setLayout $ XMonad.layoutHook conf)
     ]
 
 newKeys x = myKeys x `M.union` keys defaultConfig x
@@ -77,6 +78,7 @@ myManageHook = composeAll . concat $
         , [className =? "Nautilus" --> viewShift "3:files"]
         --
         , [className =? "Gnome-calculator" --> doFloat]
+       -- , [className =? "Gnome-calculator" --> doFloat]
     ]
     where
         viewShift = doF . liftM2 (.) W.greedyView W.shift
@@ -90,6 +92,18 @@ defaultLayouts = smartBorders(avoidStruts(
 
 -- Define layout for specific workspaces
 -- webLayout = noBorders $ Full
+myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
+    -- mod-button1, Set the window to floating mode and move by dragging
+    [ ((modm, button1), (\w -> focus w >> mouseMoveWindow w
+                                       >> windows W.shiftMaster))
+
+    -- mod-button2, Sink the window back to the grid.
+    , ((modm, button2), (\w -> withFocused $ windows . W.sink))
+
+    -- mod-button3, Set the window to floating mode and resize by dragging
+    , ((modm, button3), (\w -> focus w >> mouseResizeWindow w
+                                       >> windows W.shiftMaster))
+    ]
 
 
 myConfig = defaultConfig {
@@ -100,7 +114,8 @@ myConfig = defaultConfig {
     keys = newKeys,
     manageHook = myManageHook,
     layoutHook = defaultLayouts, 
-    handleEventHook = fullscreenEventHook
+    handleEventHook = fullscreenEventHook,
+    mouseBindings = myMouseBindings
     }
     `additionalKeys`
     [
@@ -115,6 +130,6 @@ myConfig = defaultConfig {
         , ((mod4Mask, xK_k), sendMessage $ MirrorExpand)
         , ((mod4Mask, xK_j), sendMessage $ MirrorShrink)
         , ((mod4Mask, xK_h), sendMessage $ Shrink)
-        , ((mod4Mask, xK_x), sendMessage $ Expand)
+        , ((mod4Mask, xK_l), sendMessage $ Expand)
         
     ]

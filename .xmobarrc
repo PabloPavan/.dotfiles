@@ -44,15 +44,15 @@ commands = [
 	-- Battery information. This is likely to require some customization
 	-- based upon your specific hardware. Or, for a desktop you may want
 	-- to just remove this section entirely.
-	-- Run Battery [
-	-- "-t", "<acstatus>: <left>% - <timeleft>",
-	-- "--",
+	Run Battery [
+	"-t", "<acstatus>: <left>% - <timeleft>",
+	"--",
 	--"-c", "charge_full",
-	--"-O", "AC",
-	--"-o", "Bat",
-	--"-h", "green",
-	--"-l", "red"
-	--] 10,
+	"-O", "AC",
+	"-o", "Bat",
+	"-h", "green",
+	"-l", "red"
+	] 10,
 	-- To get volume information, we run a custom bash script.
 	-- This is because the built-in volume support in xmobar is disabled
 	-- in Debian and derivatives like Ubuntu.
@@ -87,7 +87,7 @@ alignSep = "}{",
 -- space is significant and can be used to add padding.
 -- template = "%StdinReader% }{  %cpu% | %memory% | Vol: %myvolume% <fc=#e6744c>%date%</fc> "
 -- template = "%StdinReader% }{ %enp2s0%%wlp3s0% | %battery% | %cpu% | %memory% | %myvolume% | Lum: %mybright% | <fc=#e6744c>%date%</fc>"
-   template = "%StdinReader% }{%cpu% | %memory% | %myvolume%  <fc=#e6744c>%date%</fc>"
+   template = "%StdinReader% }{%cpu% | %memory% | %myvolume% | %battery%  <fc=#e6744c>%date%</fc>"
    --template = "%StdinReader% }{%cpu% | %memory% | %wlp3s0% | %myvolume%  <fc=#e6744c>%date%</fc>"
 }
 
