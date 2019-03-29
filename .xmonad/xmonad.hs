@@ -131,5 +131,6 @@ myConfig = defaultConfig {
         , ((mod4Mask, xK_j), sendMessage $ MirrorShrink)
         , ((mod4Mask, xK_h), sendMessage $ Shrink)
         , ((mod4Mask, xK_l), sendMessage $ Expand)
+        , ((0, xK_Print), spawn "spectacle")
         
     ]
