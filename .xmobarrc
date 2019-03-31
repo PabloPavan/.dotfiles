@@ -59,7 +59,7 @@ commands = [
 	--Run Com "~/bin/get-volume.sh" [] "myvolume" 10,
 	-- /!\ https://github.com/jaor/xmobar/issues/127
 	Run Com "/bin/bash" ["-c", "~/.xmonad/get-volume.sh"]  "myvolume" 1,
-
+	Run Com "/bin/bash" ["-c", "~/.xmonad/get-wifi-name.sh"]  "mywifi" 60,
 
 	--Run Com "/bin/bash" ["-c", "echo `xbacklight -get | grep -oE '^.[0-9]{0,3}'`%"]  "mybright" 1,
 	--Run Com "~/bin/get-volume.sh" [] "vol",
@@ -70,7 +70,8 @@ commands = [
 
 	--Run Weather "KNYC" ["-t", "KNYC: <tempC>C/<skyCondition>"] 36000,
 
-	--Run Network "eth0" [] 36000,
+	--Run Wireless "wlp8s0" [ "-t", "<essid>" ] 1000
+	-- Run Network "eth0" [] 36000,
 	-- This line tells xmobar to read input from stdin. That's how we
 	-- get the information that xmonad is sending it for display.
 	Run StdinReader
@@ -87,7 +88,8 @@ alignSep = "}{",
 -- space is significant and can be used to add padding.
 -- template = "%StdinReader% }{  %cpu% | %memory% | Vol: %myvolume% <fc=#e6744c>%date%</fc> "
 -- template = "%StdinReader% }{ %enp2s0%%wlp3s0% | %battery% | %cpu% | %memory% | %myvolume% | Lum: %mybright% | <fc=#e6744c>%date%</fc>"
-   template = "%StdinReader% }{%cpu% | %memory% | %myvolume% | %battery%  <fc=#e6744c>%date%</fc>"
+--   template = "%StdinReader% }{%cpu% | %memory% | %myvolume% | %battery% | %wlp8s0wi% <fc=#e6744c>%date%</fc>"
+   template = "%StdinReader% }{%cpu% | %memory% | %myvolume% | %battery% | <fc=#4ff308>%mywifi%</fc> <fc=#e6744c>%date%</fc>"
    --template = "%StdinReader% }{%cpu% | %memory% | %wlp3s0% | %myvolume%  <fc=#e6744c>%date%</fc>"
 }
 
